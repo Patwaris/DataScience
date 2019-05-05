@@ -1,0 +1,13 @@
+Data frames
+
+->Rows X Columns
+  .shape
+-->Datatypes and nullable data
+  .info()
+  
+--> min.max,avg,std deviation
+.describe
+
+-->to set the columns size
+
+  pd.set_option('display.max_columns',30)
