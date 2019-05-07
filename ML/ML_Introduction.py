@@ -37,6 +37,6 @@ import os
 os.chdir("D:\\Data Science\\Bharath_Repo\\DataScience\\SampleData\\")
 os.getcwd()
 
-titanic_test.to_csv("submission_Titanic.csv")
+titanic_test.to_csv("submission_Titanic.csv",columns=['PassengerId','Survived'])
 
 
