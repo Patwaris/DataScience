@@ -17,6 +17,7 @@ titanic_train=pd.read_csv("D:\Data Science\Bharath_Repo\DataScience\SampleData/t
 titanic_train.shape
 titanic_train.info()
 
+#one hot encoding
 titanic_train1=pd.get_dummies(titanic_train,columns=['Pclass','Sex','Embarked'])
 titanic_train1.shape
 titanic_train1.info()
