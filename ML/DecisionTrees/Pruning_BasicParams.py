@@ -38,7 +38,7 @@ titanic_train1.describe
 X_train = titanic_train1.drop(['PassengerId','Age','Cabin','Ticket','Survived'],1) 
 y_train = titanic_train['Survived']
 
-dt = tree.DecisionTreeClassifier()
+dt = tree.DecisionTreeClassifier(random_state=1)
 #Build the decision tree model
 param_grid = {'max_depth':[8, 10, 15], 'min_samples_split':[2, 4, 6], 'criterion':['gini', 'entropy']}
 
@@ -48,13 +48,16 @@ print(type(dt_grid))
 
 dt_grid.fit(X_train,y_train)
 
-dt_grid.cv_results_
+dt_grid.cv_results_ #grid_serach cv is deprecated in old version
 
 dt_grid.best_score_
 dt_grid.best_params_
+print(dt_grid.score)
 
 #predict the outcome using decission tree
 titanic_test = pd.read_csv("D:\Data Science\Bharath_Repo\DataScience\SampleData/test.csv")
+titanic_test.shape
+titanic_test.info()
 #titanic_test.info() #Found that one row has Fare = null in test data. Instead of dropping this column, let's take the mean of it.
 titanic_test.Fare[titanic_test['Fare'].isnull()] = titanic_test['Fare'].mean()
 

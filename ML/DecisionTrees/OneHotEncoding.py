@@ -8,10 +8,10 @@ from sklearn import tree
 import io
 import pydot #if we need to use any external .exe files....
 import os
-os.chdir("D:/Data Science/Data/")
+os.chdir("D:/Data Science/Bharath_Repo/DataScience/SampleData/")
 os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 
-titanic_train = pd.read_csv("D:/Data Science/Data/titanic_train.csv")
+titanic_train = pd.read_csv("D:\Data Science\Bharath_Repo\DataScience\SampleData/train.csv")
 
 #EDA
 titanic_train.shape
