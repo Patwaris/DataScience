@@ -10,6 +10,7 @@ import os
 from sklearn import preprocessing
 from sklearn import tree
 from sklearn import model_selection
+from sklearn.externals import joblib
 
 #change working directory
 os.chdir("D:/Data Science/Bharath_Repo/DataScience/SampleData/")
@@ -106,6 +107,16 @@ param_grid.fit(X_train, y_train) #Building the tree
 print(param_grid.best_score_) #Best score
 print(param_grid.best_params_)
 print(param_grid.score(X_train, y_train))
+
+#Creating the .pkl filr to provide this to client for 
+joblib.dump(param_grid,"tree1.pkl")
+
+#Exlore feature importances calculated by decision tree algorithm
+#best_estimator_ gives final best parameters. 
+#feature_importances_: Every feture has an importance with a priority number. Now we want to use best estimator along with very very importance features
+#Let's create a DataFrame with fetures and their importances.
+fi_df = pd.DataFrame({'feature':X_train.columns, 'importance':  param_grid.best_estimator_.feature_importances_}) #You may notice that feature	importance "Title_Mr" has more importance
+print(fi_df)
 
 #Now let's predict on test data
 X_test = titanic2[titanic_train.shape[0]:] #shape[0]: means 0 index to n index. Not specifying end index is nothing but till nth index
